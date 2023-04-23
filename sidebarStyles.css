@@ -1,3 +1,18 @@
 
 .dashboard{
+	z-index: 0;
+}
+
+.sidebar{
+	z-index: 1;
+	background-color: white;
+	width: 0; /*so we do not see it until clicked*/
+	max-width: 100%;
+	position: fixed;
+	height: 100%;
+	right: 0;
+	top: 0;
+	transition: 0.5s;
+	/*
+	padding-top: 60px;*/
 }

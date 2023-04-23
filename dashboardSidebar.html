@@ -8,9 +8,49 @@
 	
 	<body>
 		<img class="dashboard" src="Dashboard.png" alt="dashboard">
+		<button class="openSidebar"></button>						<!--- check if needed! --->
+		
+		<div class="sidebar">
+		
+		</div>
 	</body>
 	
 	<script>
+	
+		const openButton = document.querySelector(".openSidebar"); // ~~~~~~~check if needed
+		const sidebar = document.querySelector(".sidebar");
+		
+		
+		function openClassPreview(){
+			sidebar.style.width = "499px";
+		
+		}
+		
+		function closeClassPreview(){
+			sidebar.style.width = "0px";
+		}
+		
+		/*function openButtonClicked(){
+			openButton.click();
+			openButton.disabled = true;
+		}*/
+		
+		function openOrClose(event){
+			if(sidebar.style.width === "499px"){
+				if(!event.target.matches(".sidebar")){
+					closeClassPreview();
+				}
+			}
+			else{
+				openClassPreview();
+			}
+		}
+		
+		//openButton.addEventListener('click', openClassPreview)
+		window.onclick = openOrClose;
 		
 	</script>
 </html>
+
+
+
