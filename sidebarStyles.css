@@ -13,6 +13,9 @@
 	right: 0;
 	top: 0;
 	transition: 0.5s;
+	/*~~~~~ add shadow on the lefT!!! */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	
 	/*
 	padding-top: 60px;*/
 }
@@ -20,3 +23,134 @@
 .foggy{
 	filter: brightness(60%);
 }
+
+.editCancel{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding: 15px;
+}
+
+.editPic{
+	max-width: 5%;
+	max-height: 5%;
+	/*padding: 15px;*/
+	padding-left: 9px;
+	padding-right: 5px;
+}
+
+.editWord{
+}
+
+.cancelPic{
+	max-width: 5%;
+	max-height: 5%;
+	padding-left: 35px;
+	padding-right: 7px;
+}
+
+.cancelWord{
+	color: red;
+}
+
+.workoutPicContainer{
+	text-align: center;
+	padding-top: 20px;
+	border-bottom: 1px solid #F5F5F5;
+}
+
+.workoutPic{
+	margin: 0 auto;
+	max-width: 21%;
+	max-height: 21%;
+}
+
+h1{
+	/*margin-top: 5px;*/
+	font-weight: bold;
+	font-size: 20px;
+	padding-bottom: 14px;
+}
+
+.workoutDetails{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	
+	/*
+	text-align: center;*/
+	padding-top: 30px;
+	border-bottom: 1px solid #F5F5F5;
+}
+
+.grid-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.workout{
+	max-width: 27%;
+	max-height: 27%;
+	/*height: auto;*/
+}
+
+h3{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+p{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.debts{
+	padding: 29px;
+	border-bottom: 1px solid #F5F5F5;
+}
+
+.indelParticipants{
+	padding: 29px;
+	
+}
+
+.addClients{
+	text-align: left;
+	padding-right: 20px;
+}
+
+.parti{
+	font-size: 18px;
+	padding-right: 100px;
+}
+
+option{
+}
+
+/*
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+}
+
+.coach{
+	max-height: 7%;
+	max-width: 7%;
+	padding-right: 75px;
+}
+
+.clock{
+	max-height: 7%;
+	max-width: 7%;
+	padding-right: 75px;
+}
+
+.numOfParticipants{
+	max-height: 7%;
+	max-width: 7%;
+}*/
+
+

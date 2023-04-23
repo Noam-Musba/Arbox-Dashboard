@@ -11,7 +11,50 @@
 		<button class="openSidebar"></button>						<!--- check if needed! --->
 		
 		<div class="sidebar">
-		
+			<div class="editCancel">
+				<img class="editPic" src="pencilIcon.png" alt="edit">
+				<div class="editWord">Edit</div>
+				<img class="cancelPic" src="cancelIcon.png" alt="cancel">
+				<div class="cancelWord">Cancel Class</div>
+			</div>
+			<div class="workoutPicContainer">
+				<img class="workoutPic" src="workoutIcon.png" alt="workout">
+				<h1>Workout Of The Day</h1>
+			</div>
+			
+			<div class="workoutDetails">
+				<div class="grid-item">
+					<img class="workout" src="coachIcon.png" alt="coach">
+					<h3>Tom A</h3>
+					<p>Coach</p>
+				</div>
+				<div class="grid-item">
+					<img class="workout" src="clockIcon.png" alt="clock">
+					<h3>16:15</h3>
+					<p>Start Time</p>
+				</div>
+				<div class="grid-item">
+					<img class="workout" src="participantsIcon.jpg" alt="numOfParticipants">
+					<h3>3/15</h3>
+					<p>Participants</p>
+				</div>
+			</div>
+			
+			<div class="debts">
+				<p class="YouShouldKnow"><strong>You Should Know...</strong></p>
+				<p>Dagan &amp; Eden which participates in the class have a debt</p>
+			</div>
+			
+			<div class="indelParticipants">
+				<label for="names" class="parti">Participants</label>
+				<select id="names" name="names" class="addClients">
+					<option value="Add client">Add client</option>
+					<option value="TomLevi">Tom Levi</option>
+					<option value="TomerCohen">Tomer Cohen</option>
+					<option value="TomiTomi">Tomi Tomi</option>
+				</select>
+			</div>
+			
 		</div>
 	</body>
 	
@@ -39,7 +82,7 @@
 		
 		function openOrClose(event){
 			if(sidebar.style.width === "499px"){
-				if(!event.target.matches(".sidebar")){
+				if(event.target.matches(".dashboard")){
 					closeClassPreview();
 				}
 			}
