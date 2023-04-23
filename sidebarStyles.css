@@ -4,7 +4,7 @@
 }
 
 .sidebar{
-	z-index: 1;
+	z-index: 2;
 	background-color: white;
 	width: 0; /*so we do not see it until clicked*/
 	max-width: 100%;
@@ -15,4 +15,8 @@
 	transition: 0.5s;
 	/*
 	padding-top: 60px;*/
+}
+
+.foggy{
+	filter: brightness(60%);
 }

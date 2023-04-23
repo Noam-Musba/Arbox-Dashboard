@@ -2,7 +2,7 @@
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8" />
-		<title>class preview Exercise</title>
+		<title>My Class Preview Exercise</title>
 		<link rel="stylesheet" href="sidebarStyles.css" />
 	</head>
 	
@@ -19,15 +19,17 @@
 	
 		const openButton = document.querySelector(".openSidebar"); // ~~~~~~~check if needed
 		const sidebar = document.querySelector(".sidebar");
-		
+		const dashboard = document.querySelector(".dashboard");
 		
 		function openClassPreview(){
 			sidebar.style.width = "499px";
+			dashboard.classList.add("foggy");
 		
 		}
 		
 		function closeClassPreview(){
 			sidebar.style.width = "0px";
+			dashboard.classList.remove("foggy");
 		}
 		
 		/*function openButtonClicked(){
