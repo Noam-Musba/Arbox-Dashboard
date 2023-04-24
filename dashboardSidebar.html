@@ -125,6 +125,7 @@
 		const dashboard = document.querySelector(".dashboard");
 		const selectClient = document.querySelector(".indelParticipants");
 		const checkInButtons = document.querySelectorAll(".mybuttons");
+		const deleteButtons = document.querySelectorAll(".trash");
 		
 		function openClassPreview(){
 			sidebar.style.width = "499px";
@@ -166,12 +167,15 @@
 				case "Tomi Tomi":
 					return "noam6.jpg";
 				default:
-					return 1;
+					return -1;
 			}
 		}
 		
 		function addClient(event){
 			const pic = findPic(event.target.value);
+			if(pic === -1){
+				return;
+			}
 			const table = document.querySelector("table");
 			const newRow = table.insertRow(-1); // -1 to insert at the bottom
 			const cell1 = newRow.insertCell(0);
@@ -180,10 +184,18 @@
 			const cell4 = newRow.insertCell(3);
 			cell1.innerHTML = `<img id="0" class="clientImage" src=${pic} alt="Noam1">`;
 			cell2.innerHTML = `<p class="clientName">${event.target.value}</p>`;
-			cell3.innerHTML = '<button id="newButton" class="mybuttons">Check In</button>';
-			cell4.innerHTML = '<div class="phoneAndDelete"><img class="phone" src="phoneIcon.png" alt="phone"><img class="trash" src="trashIcon.png" alt="trash"></div>';
-			const myBtn = document.getElementById('newButton');
-			myBtn.addEventListener('click', checkInClient);
+			cell3.innerHTML = '<button id="newchkin" class="mybuttons">Check In</button>';
+			cell4.innerHTML = '<div class="phoneAndDelete"><img class="phone" src="phoneIcon.png" alt="phone"><img id="newtrsh" class="trash" src="trashIcon.png" alt="trash"></div>';
+			const checkInBtn = document.querySelectorAll('.mybuttons');
+			checkInBtn.forEach(button => {
+			button.addEventListener('click', checkInClient)
+			});
+			
+			const trashBtn = document.querySelectorAll('.trash');
+			trashBtn.forEach(button => {
+			button.addEventListener('click', deleteClient)
+			});
+			
 		}
 		
 		function checkClient(button){
@@ -208,6 +220,11 @@
 			}
 		}
 		
+		function deleteClient(event){
+			let row = event.target.parentNode.parentNode.parentNode;
+			row.parentNode.removeChild(row);
+		}
+		
 		window.onclick = openOrClose;
 		
 		selectClient.addEventListener("change", addClient);
@@ -215,6 +232,11 @@
 		checkInButtons.forEach(button => {
 			button.addEventListener('click', checkInClient)
 		});
+		
+		deleteButtons.forEach(button => {
+			button.addEventListener('click', deleteClient)
+		});
+		
 		
 	</script>
 </html>
