@@ -128,23 +128,17 @@
 		const deleteButtons = document.querySelectorAll(".trash");
 		
 		function openClassPreview(){
-			sidebar.style.width = "499px";
+			sidebar.style.width = "499vw";
 			dashboard.classList.add("foggy");
-		
 		}
 		
 		function closeClassPreview(){
-			sidebar.style.width = "0px";
+			sidebar.style.width = "0vw";
 			dashboard.classList.remove("foggy");
 		}
 		
-		/*function openButtonClicked(){
-			openButton.click();
-			openButton.disabled = true;
-		}*/
-		
 		function openOrClose(event){
-			if(sidebar.style.width === "499px"){
+			if(sidebar.style.width === "499vw"){
 				if(event.target.matches(".dashboard")){
 					closeClassPreview();
 				}
@@ -153,10 +147,6 @@
 				openClassPreview();
 			}
 		}
-		
-	/*	<option value="Tom Levi">Tom Levi</option>
-					<option value="Tomer Cohen">Tomer Cohen</option>
-					<option value="Tomi Tomi">Tomi Tomi</option>*/
 		
 		function findPic(name){
 			switch (name) {
