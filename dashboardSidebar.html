@@ -120,23 +120,27 @@
 	
 	<script>
 	
-		const openButton = document.querySelector(".openSidebar"); // ~~~~~~~check if needed
 		const sidebar = document.querySelector(".sidebar");
 		const dashboard = document.querySelector(".dashboard");
+		
+		// client to be added to the participants list
 		const selectClient = document.querySelector(".indelParticipants");
 		const checkInButtons = document.querySelectorAll(".mybuttons");
 		const deleteButtons = document.querySelectorAll(".trash");
 		
+		// open sidebar
 		function openClassPreview(){
 			sidebar.style.width = "499vw";
 			dashboard.classList.add("foggy");
 		}
 		
+		// close sidebar
 		function closeClassPreview(){
 			sidebar.style.width = "0vw";
 			dashboard.classList.remove("foggy");
 		}
 		
+		// handler to clicks on the window/screen
 		function openOrClose(event){
 			if(sidebar.style.width === "499vw"){
 				if(event.target.matches(".dashboard")){
@@ -148,6 +152,8 @@
 			}
 		}
 		
+		// personal bonus: add different pic to different clients
+		// returns -1 if user chose "Add client" as an option, insead of the other names
 		function findPic(name){
 			switch (name) {
 				case "Tom Levi":
@@ -161,11 +167,15 @@
 			}
 		}
 		
+		// add a new client to the participants list, with everything that is needed
 		function addClient(event){
 			const pic = findPic(event.target.value);
+			
+			// dont do anything if an incorrect name is chosen
 			if(pic === -1){
 				return;
 			}
+			
 			const table = document.querySelector("table");
 			const newRow = table.insertRow(-1); // -1 to insert at the bottom
 			const cell1 = newRow.insertCell(0);
@@ -176,6 +186,8 @@
 			cell2.innerHTML = `<p class="clientName">${event.target.value}</p>`;
 			cell3.innerHTML = '<button id="newchkin" class="mybuttons">Check In</button>';
 			cell4.innerHTML = '<div class="phoneAndDelete"><img class="phone" src="phoneIcon.png" alt="phone"><img id="newtrsh" class="trash" src="trashIcon.png" alt="trash"></div>';
+			
+			// activate the new buttons
 			const checkInBtn = document.querySelectorAll('.mybuttons');
 			checkInBtn.forEach(button => {
 			button.addEventListener('click', checkInClient)
@@ -188,18 +200,21 @@
 			
 		}
 		
+		// check in the client, change button's style
 		function checkClient(button){
 			button.style.backgroundColor = "white";
 			button.style.color = "#00C853";
 			button.textContent = "Checked";
 		}
 		
+		// uncheck the client, change button's style to default
 		function uncheckClient(button){
 			button.style.backgroundColor = "";
 			button.style.color = "";
 			button.textContent = "Check In";
 		}
 		
+		// checkIn button handler- either to check in or uncheck
 		function checkInClient(event){
 			let button = event.target;
 			if(button.textContent === "Checked"){
@@ -210,6 +225,7 @@
 			}
 		}
 		
+		// delete the row of a participant from the participants list
 		function deleteClient(event){
 			let row = event.target.parentNode.parentNode.parentNode;
 			row.parentNode.removeChild(row);
