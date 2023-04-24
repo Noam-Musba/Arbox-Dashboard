@@ -55,6 +55,66 @@
 				</select>
 			</div>
 			
+			
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<img id="0" class="clientImage" src="noam1.jpg" alt="Noam1">
+						</td>
+						<td>
+							<p class="clientName">Dagan Lev</p>
+						</td>
+						<td>
+							<button id="0" class="mybuttons">Checked</button>
+						</td>
+						<td>
+							<div class="phoneAndDelete">
+								<img class="phone" src="phoneIcon.png" alt="phone">
+								<img class="trash" src="trashIcon.png" alt="trash">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="1" class="clientImage" src="noam2.jpg" alt="Noam2">
+						</td>
+						<td>
+							<p class="clientName">Eden Elian</p>
+						</td>
+						<td>
+							<button id="1" class="mybuttons">Check In</button>
+						</td>
+						<td>
+							<div class="phoneAndDelete">
+								<img class="phone" src="phoneIcon.png" alt="phone">
+								<img class="trash" src="trashIcon.png" alt="trash">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img id="2" class="clientImage" src="noam3.jpg" alt="Noam3">
+						</td>
+						<td>
+							<p class="clientName">Yoni Yatziv</p>
+						</td>
+						<td>
+							<button id="0" class="mybuttons">Check In</button>
+						</td>
+						<td>
+							<div class="phoneAndDelete">
+								<img class="phone" src="phoneIcon.png" alt="phone">
+								<img class="trash" src="trashIcon.png" alt="trash">
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+				
+			
 		</div>
 	</body>
 	
@@ -63,6 +123,7 @@
 		const openButton = document.querySelector(".openSidebar"); // ~~~~~~~check if needed
 		const sidebar = document.querySelector(".sidebar");
 		const dashboard = document.querySelector(".dashboard");
+		const selectClient = document.querySelector(".indelParticipants");
 		
 		function openClassPreview(){
 			sidebar.style.width = "499px";
@@ -91,8 +152,14 @@
 			}
 		}
 		
+		function addClient(event){
+			
+		}
+		
 		//openButton.addEventListener('click', openClassPreview)
 		window.onclick = openOrClose;
+		
+		selectClient.addEventListener("change", addClient);
 		
 	</script>
 </html>
