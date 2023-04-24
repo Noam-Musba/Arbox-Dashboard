@@ -49,9 +49,9 @@
 				<label for="names" class="parti">Participants</label>
 				<select id="names" name="names" class="addClients">
 					<option value="Add client">Add client</option>
-					<option value="TomLevi">Tom Levi</option>
-					<option value="TomerCohen">Tomer Cohen</option>
-					<option value="TomiTomi">Tomi Tomi</option>
+					<option value="Tom Levi">Tom Levi</option>
+					<option value="Tomer Cohen">Tomer Cohen</option>
+					<option value="Tomi Tomi">Tomi Tomi</option>
 				</select>
 			</div>
 			
@@ -60,13 +60,13 @@
 				<tbody>
 					<tr>
 						<td>
-							<img id="0" class="clientImage" src="noam1.jpg" alt="Noam1">
+							<img class="clientImage" src="noam1.jpg" alt="Noam1">
 						</td>
 						<td>
 							<p class="clientName">Dagan Lev</p>
 						</td>
 						<td>
-							<button id="0" class="mybuttons">Checked</button>
+							<button class="mybuttons">Check In</button>
 						</td>
 						<td>
 							<div class="phoneAndDelete">
@@ -77,13 +77,13 @@
 					</tr>
 					<tr>
 						<td>
-							<img id="1" class="clientImage" src="noam2.jpg" alt="Noam2">
+							<img class="clientImage" src="noam2.jpg" alt="Noam2">
 						</td>
 						<td>
 							<p class="clientName">Eden Elian</p>
 						</td>
 						<td>
-							<button id="1" class="mybuttons">Check In</button>
+							<button class="mybuttons">Check In</button>
 						</td>
 						<td>
 							<div class="phoneAndDelete">
@@ -94,13 +94,13 @@
 					</tr>
 					<tr>
 						<td>
-							<img id="2" class="clientImage" src="noam3.jpg" alt="Noam3">
+							<img class="clientImage" src="noam3.jpg" alt="Noam3">
 						</td>
 						<td>
 							<p class="clientName">Yoni Yatziv</p>
 						</td>
 						<td>
-							<button id="0" class="mybuttons">Check In</button>
+							<button class="mybuttons">Check In</button>
 						</td>
 						<td>
 							<div class="phoneAndDelete">
@@ -124,6 +124,7 @@
 		const sidebar = document.querySelector(".sidebar");
 		const dashboard = document.querySelector(".dashboard");
 		const selectClient = document.querySelector(".indelParticipants");
+		const checkInButtons = document.querySelectorAll(".mybuttons");
 		
 		function openClassPreview(){
 			sidebar.style.width = "499px";
@@ -152,14 +153,68 @@
 			}
 		}
 		
-		function addClient(event){
-			
+	/*	<option value="Tom Levi">Tom Levi</option>
+					<option value="Tomer Cohen">Tomer Cohen</option>
+					<option value="Tomi Tomi">Tomi Tomi</option>*/
+		
+		function findPic(name){
+			switch (name) {
+				case "Tom Levi":
+					return "noam4.jpg";
+				case "Tomer Cohen":
+					return "noam5.jpg";
+				case "Tomi Tomi":
+					return "noam6.jpg";
+				default:
+					return 1;
+			}
 		}
 		
-		//openButton.addEventListener('click', openClassPreview)
+		function addClient(event){
+			const pic = findPic(event.target.value);
+			const table = document.querySelector("table");
+			const newRow = table.insertRow(-1); // -1 to insert at the bottom
+			const cell1 = newRow.insertCell(0);
+			const cell2 = newRow.insertCell(1);
+			const cell3 = newRow.insertCell(2);
+			const cell4 = newRow.insertCell(3);
+			cell1.innerHTML = `<img id="0" class="clientImage" src=${pic} alt="Noam1">`;
+			cell2.innerHTML = `<p class="clientName">${event.target.value}</p>`;
+			cell3.innerHTML = '<button id="newButton" class="mybuttons">Check In</button>';
+			cell4.innerHTML = '<div class="phoneAndDelete"><img class="phone" src="phoneIcon.png" alt="phone"><img class="trash" src="trashIcon.png" alt="trash"></div>';
+			const myBtn = document.getElementById('newButton');
+			myBtn.addEventListener('click', checkInClient);
+		}
+		
+		function checkClient(button){
+			button.style.backgroundColor = "white";
+			button.style.color = "#00C853";
+			button.textContent = "Checked";
+		}
+		
+		function uncheckClient(button){
+			button.style.backgroundColor = "";
+			button.style.color = "";
+			button.textContent = "Check In";
+		}
+		
+		function checkInClient(event){
+			let button = event.target;
+			if(button.textContent === "Checked"){
+				uncheckClient(button);
+			}
+			else{
+				checkClient(button);
+			}
+		}
+		
 		window.onclick = openOrClose;
 		
 		selectClient.addEventListener("change", addClient);
+		
+		checkInButtons.forEach(button => {
+			button.addEventListener('click', checkInClient)
+		});
 		
 	</script>
 </html>

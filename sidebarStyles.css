@@ -153,6 +153,16 @@ td {
 	border-radius: 50%;
 }
 
+.mybuttons{
+	font-family: Lato;
+	color: white;
+	background-color: #00C853;
+	border-color: #00C853;
+	border-radius: 3px;
+	width: 85px;
+	height: 30px;
+}
+
 .phone{
 	max-width: 20%;
 }
